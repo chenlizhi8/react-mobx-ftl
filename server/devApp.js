@@ -42,7 +42,7 @@ app.engine('html', njExpressEngine({
     start: '{%',
     end: '%}',
     extension: '$',
-    prop: '##'
+    prop: '@-'
   },
   defaultLayout: <#-if #{useLayout}#>'default'<#-else>null</#-else></#-if>,
   layoutsDir: 'layout/'
