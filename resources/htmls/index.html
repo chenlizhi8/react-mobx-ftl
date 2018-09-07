@@ -1,0 +1,38 @@
+﻿<#-if #{!(useLayout)}#>
+<!DOCTYPE html>
+<html>
+<% if (web) { %>
+<#include "./common/headElements.ftl" />
+<% } else { %>
+<$include src="./common/headElements.html" />
+<% } %>
+<body>
+<% if (web) { %>
+<#include "./common/resourceElements.ftl" />
+<% } else { %>
+<$include src="./common/resourceElements.html" />
+<% } %>
+<link href="/resources/app/css/common.css?ver=<%=ver%>" rel="stylesheet" />
+</#-if>
+  <link href="/resources/app/css/pages/container.css?ver=<%=ver%>" rel="stylesheet" />
+  <section id="container"></section>
+  <script type="text/nornj" data-auto data-target="#container">
+    <Container>
+      <##tmpl>
+        <div>
+          <ant-Button type="primary" onClick={goPage1}>页面1</ant-Button>
+          <ant-Button type="primary" onClick={goPage2}>页面2</ant-Button>
+        </div>
+      </##tmpl>
+    </Container>
+  </script>
+<#-if #{!(useLayout)}#>
+<% if (web) { %>
+<#include "./common/bottomElements.ftl" />
+<% } else { %>
+<$include src="./common/bottomElements.html" />
+<% } %>
+<script src="/resources/app/pages/container.js?ver=<%=ver%>"></script>
+</body>
+</html>
+</#-if>
